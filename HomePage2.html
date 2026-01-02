@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollegeProject</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body{
+      background-image: url(webbg3.jpeg);
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    .coclogo{
+      height: 60px;
+      width: 60px;
+      margin-left: 20px;
+      background-image: url(logo.png);
+      background-size: cover;
+    }
+
+    .logreg{
+      color: #000000;
+      height: 30px;
+      width: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: large;
+      font-weight: bolder;
+      background-color: #ffffff;
+      border: 3px solid black;
+      border-radius: 8px;
+      margin-left: 10px;
+    }
+
+    .navbar-second{
+      height: 50px;
+      width: 100%;
+      background-color:rgb(24, 3, 64);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .college-name {
+      font-size: 30px;
+      margin-left: 15px;
+      font-family: "Cedarville Cursive", cursive;
+      font-weight: bolder;
+      margin-top: -4px;
+    }
+
+    .college-university {
+      font-size: 17px;
+      margin-left: 220px;
+      font-family: "Cedarville Cursive", cursive;
+      font-weight: 400;
+      margin-top: -9px;
+    }
+
+    .top-bar {
+      background-color: rgb(68, 61, 124);
+      color: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(249, 246, 246);
+      padding: 15px;
+    }
+
+    .grey {
+      background-image: url(background4.jpg);
+      background-size: cover;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      width: 98%;
+      height: 450px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+
+    .grey b {
+      color: #00ffae;
+      font-size: 4rem;
+    }
+    .grey p {
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      width: 270px;
+      height: 360px;
+      background-color: rgb(92, 105, 169);
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      text-align: center;
+      padding: 20px;
+      transition: 0.3s;
+      color: #fff;
+    }
+        .one{
+       position: absolute;
+       top: 350px;
+       right: 290px;
+    }
+    .two{
+        position: absolute;
+        top: 350px;
+        left: 290px;
+    }
+    .three{
+    position: absolute;
+    top: 350px;
+    left: 875px;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .box i {
+      font-size: 100px;
+      color: #e8cf82;
+    }
+    .box h3{
+      color: #000;
+      font-size:x-large ;
+    }
+
+    .box span {
+      font-size: 20px;
+      display: block;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .info-text {
+      margin-top: 180px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffdd57;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #00ffae;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+    .btn:hover {
+      background: #00cc88;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #444;
+      margin-top: 30px;
+    }
+
+    /* Services Section */
+    .services-section {
+      background-image: url(servicebg2.webp);
+      background-size: cover;
+      background-color: #f2f2f2;
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 40px 20px;
+      border-radius: 12px;
+    }
+
+    .schead {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f0f0f2;
+      margin-bottom: 40px;
+    }
+
+    .services-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .service-card {
+      background-color: rgba(198, 209, 241, 0.95);
+      border-radius: 15px;
+      width: 250px;
+      height: 220px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(44, 43, 48, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 2px solid rgb(14, 14, 14);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor:grabbing;
+      color: #000000;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px); 
+      box-shadow: 0 15px 30px rgba(36, 36, 37, 0.8);
+    }
+
+    .service-card i {
+      font-size: 35px;
+      margin-bottom: 10px;
+      color: #2d2d33;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .service-card span {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background-color: rgb(24, 3, 64);
+      color: #f2f2f2;
+      padding: 40px 20px;
+      margin-top: 60px;
+      box-shadow: inset 0 2px 8px rgb(0 0 0 / 0.5);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .footer-section {
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+    .footer-section h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #ffffff;
+      border-bottom: 2px solid #3b3fdb;
+      padding-bottom: 5px;
+    }
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95rem;
+      color: #ffffff;
+      line-height: 1.5;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+    .footer-section a:hover {
+      color: #19191c;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #8a8acb;
+      border-top: 1px solid #3b3fdb;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="top-bar">
+    <div class="coclogo"></div>
+    <div>
+      <div class="college-name">College of Commerce, Arts & Science</div>
+      <div class="college-university">Patliputra University</div>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <div class="logreg"><a href="http://localhost:3000/login" style="color: #000;">Login</a></div>
+    </div>
+  </div>
+
+  <div class="navbar-second">
+    <div class="menues">
+      <a href="https://www.cocaspatna.ac.in/">Home</a>
+      <a href="about.html">About</a>
+      <a href="HomePage2.html">Service</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <center>
+    <div class="grey">
+     
+        <b>College Payment Support Site</b><br>
+      <p> The College Payment Support Site is designed to assist students of the College of Commerce Art and Science Patna by tackling prevalent payment issues encountered during college transactions. It features real-time updates, a dedicated student portal, and a notice board for sharing both problems and solutions, ensuring that students receive timely support and information.</p> 
+      
+    </div>
+
+    <!-- Issues Section -->
+    <div class="container">
+      <div class="box one">
+        <i class="fa-solid fa-credit-card"></i><br><br>
+        <h3>Stuck Payment Issue</h3>
+        <span>Money gets debited but payment doesn't go through, leaving students in limbo.</span>
+      </div>
+
+      <div class="box two">
+        <a style="text-decoration: none; color: inherit;">
+          <i class="fa-solid fa-triangle-exclamation"></i><br><br>
+          <h3>Server Down Alert</h3>
+          <span>Payment servers go down during peak hours, causing failed transactions.</span>
+        </a>
+      </div>
+
+      <div class="box three">
+        <i class="fa-solid fa-file-invoice"></i><br><br>
+        <h3>Lost Receipt</h3>
+        <span>Difficulty in tracking and retrieving transaction receipts when needed.</span>
+      </div>
+    </div>
+
+    <p class="info-text">🔴 ⚠️ If you are facing any of the issues above, click the button below for a solution.</p>
+   <a href="Solution.html"> <button class="btn">Click Here for Solution</button></a><br>
+   <a href="trackstatus.html"><button class="btn" style="margin-top: -20px;">Track Complaint</button></a>
+
+    <hr>
+  </center>
+
+  <!-- Our Services Section -->
+  <div class="services-section" aria-label="Our Services">
+    <h2 class="schead">Our Features</h2>
+    <div class="services-grid">
+      
+      <a href="servermonitorparagraph.html" style="text-decoration:none; color:inherit;">
+        <article class="service-card" tabindex="0" aria-labelledby="service1-title" aria-describedby="service1-desc">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          <h3 id="service1-title">Real-time Server Monitoring</h3>
+          <span id="service1-desc">24/7 monitoring of payment servers to prevent downtime issues.</span>
+        </article>
+      </a>
+  
+      <a href="autorefundpara.html"><article class="service-card" tabindex="0" aria-labelledby="service2-title" aria-describedby="service2-desc">
+        <i class="fas fa-sync-alt" aria-hidden="true"></i>
+        <h3 id="service2-title">Automatic Refund</h3>
+        <span id="service2-desc">Streamlined process for quick refunds of stuck payments.</span>
+      </article></a>
+  
+     <a href="digitalreceiptpara.html"> <article class="service-card" tabindex="0" aria-labelledby="service3-title" aria-describedby="service3-desc">
+        <i class="fas fa-file-invoice" aria-hidden="true"></i>
+        <h3 id="service3-title">Digital Receipt Management</h3>
+        <span id="service3-desc">Easy access to all your transaction receipts in one place.</span>
+      </article></a>
+  
+      <a href="247supportpara.html"><article class="service-card" tabindex="0" aria-labelledby="service4-title" aria-describedby="service4-desc">
+        <i class="fas fa-headset" aria-hidden="true"></i>
+        <h3 id="service4-title">24/7 Support</h3>
+        <span id="service4-desc">Round-the-clock support for any payment-related issues.</span>
+      </article></a>
+  
+      <a href="mobileirrigation.html"><article class="service-card" tabindex="0" aria-labelledby="service5-title" aria-describedby="service5-desc">
+        <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+        <h3 id="service5-title">Mobile Payment Integration</h3>
+        <span id="service5-desc">Seamless payments through mobile apps and wallets.</span>
+      </article></a>
+  
+    <a href="enhancedsecuiritypara.html">  <article class="service-card" tabindex="0" aria-labelledby="service6-title" aria-describedby="service6-desc">
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        <h3 id="service6-title">Enhanced Security</h3>
+        <span id="service6-desc">Advanced encryption and fraud detection for safe transactions.</span>
+      </article></a>
+  
+      <a href="paymentalertpara.html"><article class="service-card" tabindex="0" aria-labelledby="service7-title" aria-describedby="service7-desc">
+        <i class="fas fa-bell" aria-hidden="true"></i>
+        <h3 id="service7-title">Payment Alerts</h3>
+        <span id="service7-desc">Instant notifications for all payment activities.</span>
+      </article></a>
+  
+     <a href="analysticsreportpara.html"> <article class="service-card" tabindex="0" aria-labelledby="service8-title" aria-describedby="service8-desc">
+        <i class="fas fa-chart-line" aria-hidden="true"></i>
+        <h3 id="service8-title">Analytics & Reports</h3>
+        <span id="service8-desc">Detailed insights on payment trends and history.</span>
+      </article></a>
+  
+      <a href="cloudbackuppara.html"><article class="service-card" tabindex="0" aria-labelledby="service10-title" aria-describedby="service10-desc">
+        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+        <h3 id="service10-title">Cloud Backup</h3>
+        <span id="service10-desc">Secure cloud storage for all payment data and receipts.</span>
+      </article></a>
+  
+      <a href="privacypara.html"><article class="service-card" tabindex="0" aria-labelledby="service11-title" aria-describedby="service11-desc">
+        <i class="fas fa-user-shield" aria-hidden="true"></i>
+        <h3 id="service11-title">Privacy Compliance</h3>
+        <span id="service11-desc">Ensuring data protection according to latest regulations.</span>
+      </article></a>
+  
+      <a href="aisupppara.html"><article class="service-card" tabindex="0" aria-labelledby="service12-title" aria-describedby="service12-desc">
+        <i class="fas fa-robot" aria-hidden="true"></i>
+        <h3 id="service12-title">AI-Powered Support</h3>
+        <span id="service12-desc">Smart assistance for quick resolution of payment queries.</span>
+      </article></a>
+      
+    </div>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <section class="footer-section">
+        <h4>About COCAS Patna</h4>
+        <p>Helping students with seamless payment solutions and support.</p>
+      </section>
+
+      <section class="footer-section">
+        <h4>Contact Info</h4>
+        <p>Email: support@ccaspatna.ac.in</p>
+        <p>Phone: +91 XXXXXXXXXX</p>
+        <p>Address: College Campus, Patna</p>
+      </section>
+
+      <section class="footer-section">
+        <h4>Emergency Support</h4>
+        <p>Payment Issues: 24/7 Helpline</p>
+        <p>Technical Support: Available</p>
+        <p>Refund Assistance: Immediate</p>
+      </section>
+    </div>
+    <div class="footer-bottom">© 2025 COCAS Patna. All Rights Reserved.</div>
+  </footer>
+
+</body>
+</html>

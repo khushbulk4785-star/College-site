@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        body {
+            background-image: url(webbg3.jpeg);
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            height: 60px;
+            width: 60px;
+            margin-left: 20px;
+            background-image: url(logo.png);
+            background-size: cover;
+        }
+
+        .top-bar {
+            background-color: rgb(68, 61, 124);
+            color: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .college-name {
+            font-size: 30px;
+            margin-left: 15px;
+            font-family: "Cedarville Cursive", cursive;
+            font-optical-sizing: auto;
+            font-style: normal;
+            margin-top: 1px;
+            font-weight: bolder;
+        }
+
+        .college-university {
+            font-size: 17px;
+            margin-left: 25px;
+            font-family: "Cedarville Cursive", cursive;
+            font-weight: 400;
+            font-style: normal;
+            margin-top: -7px;
+
+
+        }
+
+        /* Feedback form */
+        .feedback-container {
+            background-color: #dce9fc;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .feedback-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c2c54;
+        }
+
+        .feedback-container label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .feedback-container input,
+        .feedback-container textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #999;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .feedback-container button {
+            background-color: rgb(68, 61, 124);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .feedback-container button:hover {
+            background-color: rgb(48, 40, 100);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: rgb(24, 3, 64);
+            color: #f2f2f2;
+            padding: 40px 20px;
+            box-shadow: inset 0 2px 8px rgb(0 0 0 / 0.5);
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1 1 220px;
+            min-width: 220px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+            border-bottom: 2px solid #3b3fdb;
+            padding-bottom: 5px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.95rem;
+            color: #ffffff;
+            line-height: 1.5;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #19191c;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #8a8acb;
+            border-top: 1px solid #3b3fdb;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="top-bar">
+        <div class="logo"></div>
+        <div class="header">
+            <div class="college-name">College of Commerce , Arts & Science </div>
+            <div class="college-university">Patliputra University </div>
+        </div>
+    </div>
+
+    <!-- Feedback Form -->
+    <div class="feedback-container">
+        <h1>Feedback Form</h1>
+        <form>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="feedback">Your Feedback</label>
+            <textarea id="feedback" name="feedback" rows="5" placeholder="Write your feedback here..."
+                required></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container" role="contentinfo">
+            <section class="footer-section" aria-labelledby="footer-about-title">
+                <h4 id="footer-about-title">About COCAS Patna</h4>
+            </section>
+            <section class="footer-section" aria-labelledby="footer-contact-title">
+                <h4 id="footer-contact-title">Contact Info</h4>
+                <p>Email: support@ccaspatna.ac.in</p>
+                <p>Phone: +91 XXXXXXXXXX</p>
+                <p>Address: College Campus, Patna</p>
+            </section>
+            <section class="footer-section" aria-labelledby="footer-support-title">
+                <h4 id="footer-support-title">Emergency Support</h4>
+                <p>Payment Issues: 24/7 Helpline</p>
+                <p>Technical Support: Available</p>
+                <p>Refund Assistance: Immediate</p>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>

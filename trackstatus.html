@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Track Complaint</title>
+  <style>
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background-image: url(webbg3.jpeg);
+      background-size: cover;
+      background-attachment: fixed;
+      color:#fff;
+    }
+
+    /* -------- Header (your code) -------- */
+    .top-bar {
+      background-color: rgb(68, 61, 124);
+      color: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .coclogo{
+      height: 60px;
+      width: 60px;
+      margin-left: 20px;
+      background-image: url(logo.png);
+      background-size: cover;
+    }
+    .college-name {
+      font-size: 26px;
+      margin-left: 15px;
+      font-family: "Cedarville Cursive", cursive;
+      font-weight: bolder;
+    }
+    .college-university {
+      font-size: 15px;
+      margin-left: 220px;
+      font-family: "Cedarville Cursive", cursive;
+      font-weight: 400;
+    }
+    .navbar-second{
+      height: 50px;
+      background-color:rgb(24, 3, 64);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .navbar-second a {
+      text-decoration: none;
+      color: #fff;
+      padding: 15px;
+    }
+
+    /* -------- Track Complaint main container -------- */
+    .wrap{
+      width:min(1100px, 95%);
+      margin:40px auto;
+      background: rgba(0,0,0,0.65);
+      padding:20px;
+      border-radius:16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .title{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .subtitle{
+      font-size:14px;
+      color:#ddd;
+      margin-bottom:20px;
+    }
+    .form{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr auto;
+      gap:12px;
+      align-items:end;
+      margin-bottom:20px;
+    }
+    .field{display:flex;flex-direction:column;gap:6px}
+    .label{font-size:12px;color:#ccc}
+    .input,.select{
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #666;
+      background:#1a1a2e;
+      color:#fff;
+    }
+    .btn{
+      background:#4da3ff;
+      color:#fff;
+      border:0;
+      border-radius:8px;
+      padding:10px 16px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .results{
+      background:#111a2b;
+      padding:20px;
+      border-radius:12px;
+      margin-top:20px;
+    }
+    .section-title{font-weight:700;margin-bottom:8px}
+    .muted{color:#aaa;font-size:13px}
+    .status{padding:4px 8px;border-radius:6px;font-size:12px;font-weight:600}
+    .status.open{background:#223e70;color:#4da3ff}
+    .status.inprogress{background:#66530f;color:#ffb020}
+    .status.resolved{background:#0f4d32;color:#16c784}
+    .status.closed{background:#5c1111;color:#ef4444}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:8px;border-bottom:1px solid #333;font-size:14px;text-align:left}
+    th{background:#1e2a45}
+
+    .empty{
+      border:1px dashed #444;
+      padding:20px;
+      border-radius:8px;
+      text-align:center;
+      margin-top:20px;
+      color:#bbb;
+    }
+
+    /* -------- Footer (your code) -------- */
+    footer {
+      text-align: center;
+      background-color: rgb(24, 3, 64);
+      color: #f2f2f2;
+      padding: 40px 20px;
+      margin-top: 40px;
+      box-shadow: inset 0 2px 8px rgb(0 0 0 / 0.5);
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .footer-section {
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+    .footer-section h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #3b3fdb;
+      padding-bottom: 5px;
+    }
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95rem;
+      color: #ffffff;
+      line-height: 1.5;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+    .footer-section a:hover {color:#ccc}
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #8a8acb;
+      border-top: 1px solid #3b3fdb;
+      padding-top: 20px;
+    }
+    @media(max-width:768px){
+      .form{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="top-bar">
+    <div class="coclogo"></div>
+    <div>
+      <div class="college-name">College of Commerce, Arts & Science</div>
+      <div class="college-university">Patliputra University</div>
+    </div>
+  </div>
+  <div class="navbar-second">
+    <a href="HomePage2.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="HomePage.html">Service</a>
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+  </div>
+
+  <!-- Track Complaint Section -->
+  <div class="wrap">
+    <div class="title">Track Complaint</div>
+    <div class="subtitle">Enter your Tracking ID or browse by status.</div>
+    <form class="form" id="trackForm">
+      <div class="field">
+        <label class="label">Tracking ID</label>
+        <input class="input" id="trackId" placeholder="e.g. 24U01-----">
+      </div>
+      <div class="field">
+        <label class="label">Choose Department</label>
+        <select class="select" id="status">
+          <option value="">All</option>
+          <option value="In Progress">BCA</option>
+          <option value="Resolved">BBA</option>
+          <option value="Closed">BscIT</option>
+          <option value="Closed">BLis</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="label">Email / Phone</label>
+        <input class="input" id="emailPhone" placeholder="Optional">
+      </div>
+      <button class="btn" type="submit">Search</button>
+    </form>
+
+    <div class="results" id="results" style="display:none;">
+      <div class="section-title">Complaint Details</div>
+      <p>ID: <span id="d-id"></span></p>
+      <p>Status: <span id="d-status"></span></p>
+      <table id="eventsTable">
+        <thead><tr><th>When</th><th>Event</th><th>Notes</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="emptyState" class="empty">Enter a Tracking ID or Status to see results.</div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <section class="footer-section">
+        <h4>About COCAS Patna</h4>
+        <p>Helping students with seamless payment solutions and support.</p>
+      </section>
+      <section class="footer-section">
+        <h4>Contact Info</h4>
+        <p>Email: support@ccaspatna.ac.in</p>
+        <p>Phone: +91 XXXXXXXXXX</p>
+        <p>Address: College Campus, Patna</p>
+      </section>
+      <section class="footer-section">
+        <h4>Emergency Support</h4>
+        <p>Payment Issues: 24/7 Helpline</p>
+        <p>Technical Support: Available</p>
+        <p>Refund Assistance: Immediate</p>
+      </section>
+    </div>
+    <div class="footer-bottom">© 2025 COCAS Patna. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    // Simple demo data
+    const DATA = [
+      {
+        id:"CMP-10234",
+        status:"In Progress",
+        events:[
+          {at:"2025-08-28",what:"Submitted",note:"Complaint created"},
+          {at:"2025-08-29",what:"In Progress",note:"Fix under testing"}
+        ]
+      },
+      {
+        id:"CMP-10002",
+        status:"Resolved",
+        events:[
+          {at:"2025-08-20",what:"Submitted",note:"Correction request"},
+          {at:"2025-08-21",what:"Resolved",note:"Done"}
+        ]
+      }
+    ];
+    const $=s=>document.querySelector(s);
+    $("#trackForm").addEventListener("submit",e=>{
+      e.preventDefault();
+      const id=$("#trackId").value.trim().toUpperCase();
+      const status=$("#status").value;
+      let res=DATA;
+      if(id) res=res.filter(x=>x.id===id);
+      if(status) res=res.filter(x=>x.status===status);
+      if(!res.length){
+        $("#results").style.display="none";
+        $("#emptyState").style.display="block";
+        $("#emptyState").textContent="No complaint found.";
+        return;
+      }
+      const item=res[0];
+      $("#results").style.display="block";
+      $("#emptyState").style.display="none";
+      $("#d-id").textContent=item.id;
+      $("#d-status").textContent=item.status;
+      const tbody=$("#eventsTable tbody");
+      tbody.innerHTML="";
+      item.events.forEach(e=>{
+        const tr=document.createElement("tr");
+        tr.innerHTML=`<td>${e.at}</td><td>${e.what}</td><td>${e.note}</td>`;
+        tbody.appendChild(tr);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+  * {
+      box-sizing: border-box;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    
+    .top-bar {
+      background-color: rgb(68, 61, 124);
+      color: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 20px;
+    }
+    .coclogo{
+      height: 60px;
+      width: 60px;
+      margin-left: 20px;
+      background-image: url(logo.png);
+      background-size: cover;
+    }
+      .college-name {
+      font-size: 30px;
+      margin-left: 15px;
+      font-family: "Cedarville Cursive", cursive;
+      font-weight: bolder;
+      margin-top: -4px;
+    }
+
+    .college-university {
+      font-size: 17px;
+      margin-left: 220px;
+      font-family: "Cedarville Cursive", cursive;
+      font-weight: 400;
+      margin-top: -9px;
+    }
+     .navbar-second{
+      height: 50px;
+      background-color:rgb(24, 3, 64);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+     .menues{
+      text-decoration: none;
+      color: rgb(249, 246, 246);
+    }
+    .navbar-second a{
+        margin-right: 20px;
+    }
+
+    /* center */
+    .stuckpayment{
+      height: 120px;
+      width: 100%;
+      border: 5px solid black;
+      border-radius: 25px;
+      background-color: rgb(161, 206, 245);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+    .stuckpayment b{
+        font-size: 3rem;
+        font-weight: bolder;
+        color: #19191c;
+    }
+    .stuckpayment p{
+        color: #19191c;
+        font-size: 1.5rem ;
+        margin-top: -5px;
+    }
+    .lostreceipt{
+      height: 120px;
+      width: 100% ;
+      border: 5px solid black;
+      border-radius: 25px;
+      margin-top: 20px;
+      background-color: rgb(161, 206, 245);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+    .lostreceipt b{
+        font-size: 3rem;
+        font-weight: bolder;
+        color: #19191c;
+    }
+    .lostreceipt p{
+        color: #19191c;
+        font-size: 1.5rem ;
+        margin-top: -5px;
+    }
+    /* * Receipt System */ 
+    .receipts{
+    margin-top: -40px;
+    }
+        .receipt-system {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+
+        .receipt-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .search-btn {
+            background-color:aliceblue;
+            color: rgb(1, 2, 14);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #bad7fb;
+        }
+
+        .results {
+            margin-top: 2rem;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f7fafc;
+            display: none;
+        }
+
+        .result-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid var(--success-color);
+        }
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+.serverdalert{
+      height: 120px;
+      width: 100%;
+      border: 5px solid black;
+      border-radius: 25px;
+      margin-top: 25px;
+      background-color: rgb(161, 206, 245);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+    .serverdalert b{
+        font-size: 3rem;
+        font-weight: bolder;
+        color: #19191c;
+    }
+    .serverdalert p{
+        color: #19191c;
+        font-size: 1.5rem ;
+        margin-top: -5px;
+    }
+      :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #ef4444;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;}
+
+      .server-status {
+            transition: all 0.3s ease;
+        }
+        
+        .status-online {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .status-offline {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            animation: pulse 2s infinite;
+        }
+        
+        .status-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+          @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+      /* Footer */
+    footer {
+      text-align: center;
+      background-color: rgb(24, 3, 64);
+      color: #f2f2f2;
+      padding: 40px 20px;
+      margin-top: 60px;
+      box-shadow: inset 0 2px 8px rgb(0 0 0 / 0.5);
+    }
+
+    .footer-container {
+      min-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .footer-section {
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+    .footer-section h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #ffffff;
+      border-bottom: 2px solid #3b3fdb;
+      padding-bottom: 5px;
+    }
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95rem;
+      color: #ffffff;
+      line-height: 1.5;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+    .footer-section a:hover {
+      color: #19191c;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #8a8acb;
+      border-top: 1px solid #3b3fdb;
+      padding-top: 20px;
+    }
+
+    </style>
+</head>
+<body>
+      <div class="top-bar">
+    <div class="coclogo"></div>
+    <div>
+      <div class="college-name">College of Commerce, Arts & Science</div>
+      <div class="college-university">Patliputra University</div>
+    </div>
+  </div>
+    <div class="navbar-second">
+    <div class="menues">
+      <a href="HomePage2.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="HomePage.html">Service</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+    </div>
+  </div>
+
+  <Center>
+    <div class="stuckpayment">
+     <b>1.Stuck Payment Issue</b><br>
+     <p>Money gets debited but payment doesn't go through, leaving students in limbo.</p>
+    </div>
+       <!-- Payment Support Section -->
+    <section id="payment" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Payment Support Center</h2>
+                <p class="text-lg text-gray-600">Immediate assistance for payment-related issues</p>
+            </div>
+
+            <!-- Payment Issue Resolution -->
+            <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-12">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-lg font-medium text-red-800">Urgent: Payment Processing Issues</h3>
+                        <div class="mt-2 text-sm text-red-700">
+                            <p>If your payment was debited but not processed, follow these steps immediately:</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>Do not attempt the payment again immediately</li>
+                                <li>Check your bank statement for transaction status</li>
+                                <li>Wait 24-48 hours for automatic refund processing</li>
+                                <li>Contact our support team with transaction details</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Quick Help -->
+                <div class="bg-blue-50 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Quick Help Guide</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h4 class="font-semibold mb-2">Step 1: Verify Transaction</h4>
+                            <p class="text-sm text-gray-600">Check your bank statement and payment gateway status</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h4 class="font-semibold mb-2">Step 2: Document Details</h4>
+                            <p class="text-sm text-gray-600">Screenshot error messages and transaction IDs</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h4 class="font-semibold mb-2">Step 3: Contact Support</h4>
+                            <p class="text-sm text-gray-600">Use the form below or visit administration office</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Form -->
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Immediate Support Request</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Student ID</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your student ID">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Transaction ID</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Enter transaction reference number">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Issue Description</label>
+                            <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Describe the payment issue in detail"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                            Submit Support Request
+                        </button>
+                    </form>
+                </div>
+            </div><hr>
+
+           
+  </Center>
+  <center>
+    <!-- 2nd no -->
+      <div class="lostreceipt">
+        <b>2.Lost Receipt Issue</b><br>
+     <p>Difficulty in tracking and retrieving transaction receipts when needed.</p>
+    </div>
+      <!-- Receipt Tracking System -->
+    <section class="receipts">
+
+            <div class="receipt-system">
+                <div class="receipt-form">
+                    <div class="form-group">
+                        <label for="studentId">Student ID Number</label>
+                        <input type="text" id="studentId" placeholder="Enter your student ID" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionType">Transaction Type</label>
+                        <select id="transactionType">
+                            <option value="">Select transaction type</option>
+                            <option value="fee">Tuition Fee</option>
+                            <option value="exam">Examination Fee</option>
+                            <option value="library">Library Fine</option>
+                            <option value="hostel">Hostel Fee</option>
+                            <option value="other">Other Payments</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="dateRange">Approximate Date</label>
+                        <input type="date" id="dateRange" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Approximate Amount (if remembered)</label>
+                        <input type="number" id="amount" placeholder="Enter approximate amount" />
+                    </div>
+                    
+                    <button class="search-btn" onclick="searchReceipt()">Search for Receipt</button>
+                </div>
+
+                <div id="results" class="results">
+                    <h3>Search Results</h3>
+                    <div id="resultList"></div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Digital Receipts</h3>
+                    <p>All transactions are automatically stored in our secure digital database for easy retrieval.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Easy Search</h3>
+                    <p>Find your receipts quickly using multiple search criteria including date, amount, and transaction type.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Email Delivery</h3>
+                    <p>Receive your receipt directly to your email address for permanent storage and future reference.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Storage</h3>
+                    <p>Your financial data is protected with bank-level security and encryption standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </center>
+
+  <center>
+    <div class="serverdalert">
+         <b>3.Server Down Alert</b><br>
+     <p>Payment servers go down during peak hours, causing failed transactions.</p>
+    </div>
+     <!-- Server Status Banner -->
+    <div class="server-status text-white py-3 px-4 text-center">
+        <div class="container mx-auto flex items-center justify-center space-x-2">
+            <i class="fas fa-server text-xl"></i>
+            <p class="font-semibold" id="status-text">Checking server status...</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Secure Payment Solutions for Students
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Never worry about stuck payments again. Our advanced monitoring system ensures your transactions are safe and secure.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="servermoniter.html"><button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition duration-300">
+                        Check Server Status
+                    </button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+  </center>
+      <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <section class="footer-section">
+        <h4>About COCAS Patna</h4>
+        <p>Helping students with seamless payment solutions and support.</p>
+      </section>
+
+      <section class="footer-section">
+        <h4>Contact Info</h4>
+        <p>Email: support@ccaspatna.ac.in</p>
+        <p>Phone: +91 XXXXXXXXXX</p>
+        <p>Address: College Campus, Patna</p>
+      </section>
+
+      <section class="footer-section">
+        <h4>Emergency Support</h4>
+        <p>Payment Issues: 24/7 Helpline</p>
+        <p>Technical Support: Available</p>
+        <p>Refund Assistance: Immediate</p>
+      </section>
+    </div>
+    <div class="footer-bottom">© 2025 COCAS Patna. All Rights Reserved.</div>
+  </footer>
+
+</body>
+</html>

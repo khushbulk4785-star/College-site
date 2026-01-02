@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Login Box</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS (with Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f2f5;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      height: 80px;
+      padding: 0 1rem;
+    }
+
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .offcanvas-body .nav-link {
+      transition: 0.3s;
+    }
+
+    .offcanvas-body .nav-link:hover {
+      background-color: #495057;
+      border-radius: 5px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #343a40;
+      color: #fff;
+    }
+
+    .carousel-item img {
+      height: 500px;
+      width: 100%;
+      margin: 0 auto;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .container {
+      position: relative;
+      width: 850px;
+      height: 480px;
+      background: #fff;
+      border-radius: 15px;
+      margin-top: 80px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .form-container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      transition: all 0.6s ease-in-out;
+      padding: 40px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Student visible by default */
+    .student-container {
+      left: 0;
+      z-index: 5;
+    }
+
+    /* Admin hidden initially */
+    .admin-container {
+      left: 100%;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    /* Animation when toggle */
+    .container.active .student-container {
+      transform: translateX(-100%);
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .container.active .admin-container {
+      transform: translateX(-100%);
+      opacity: 1;
+      z-index: 5;
+    }
+
+    .toggle-box {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, #007bff, #6610f2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s ease-in-out;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .container.active .toggle-box {
+      right: 50%;
+      background: linear-gradient(to left, #007bff, #6610f2);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    input {
+      width: 85%;
+      max-width: 320px;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    button {
+      width: 60%;
+      max-width: 220px;
+      padding: 12px;
+      margin-top: 15px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      width: 100%;
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 25px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    footer h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #f0f0f0;
+    }
+
+    footer p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    footer a {
+      color: #00aced;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- Logo + Brand -->
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Logo">
+        College of Commerce , Arts & Science
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+        aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Offcanvas -->
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  click to login
+                </a>
+      
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="login.html">Login</a></li>
+
+               
+              </ul>
+            
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container" id="loginBox">
+    <!-- Student Login -->
+    <div class="form-container student-container">
+      <h2>Student Login</h2>
+      <input type="text" placeholder="Enter Student ID">
+      <input type="password" placeholder="Enter Password">
+      <button>Login</button>
+    </div>
+
+    <!-- Admin Login -->
+    <div class="form-container admin-container">
+      <h2>Admin Login</h2>
+      <input type="text" placeholder="Enter Admin ID">
+      <input type="password" placeholder="Enter Password">
+      <button>Login</button>
+    </div>
+
+    <!-- Toggle Box -->
+    <div class="toggle-box" id="toggleText" onclick="toggleForm()">
+      Admin Login
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Patna Commerce College</h3>
+    <p>Ashok Rajpath, Patna, Bihar | Contact: info@patnacommercecollege.ac.in | +91 9876543210</p>
+    <p>
+      <a href="#">Facebook</a> | 
+      <a href="#">LinkedIn</a> | 
+      <a href="#">Twitter</a>
+    </p>
+    <p>© 2025 Patna Commerce College. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleForm() {
+      const box = document.getElementById("loginBox");
+      const text = document.getElementById("toggleText");
+      box.classList.toggle("active");
+      
+      if (box.classList.contains("active")) {
+        text.innerText = "Student Login";
+      } else {
+        text.innerText = "Admin Login";
+      }
+    }
+  </script>
+</body>
+</html>

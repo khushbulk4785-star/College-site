@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Monitoring Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url('web.jpeg') center/cover no-repeat;
+      color: #fff;
+    }
+
+    /* HEADER */
+    .coclogo {
+      height: 60px;
+      width: 60px;
+      margin-left: 20px;
+      background-image: url(logo.png);
+      background-size: cover;
+    }
+
+    .top-bar {
+      background-color: rgb(68, 61, 124);
+      color: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .college-name {
+      font-size: 26px;
+      margin-left: 15px;
+      font-weight: bolder;
+    }
+
+    .college-university {
+      font-size: 15px;
+      margin-left: 25px;
+      font-weight: 400;
+      margin-top: -5px;
+    }
+
+    .navbar-second {
+      height: 50px;
+      background-color: rgb(24, 3, 64);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .navbar-second a {
+      color: white;
+      padding: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar-second a:hover {
+      color: #ffd700;
+    }
+
+    /* DASHBOARD */
+    .dashboard {
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.6);
+      min-height: 80vh;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #252525, #1a1a1a);
+
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .card h2 {
+      color: #3b3fdb;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    #serverGraph {
+      width: 100%;
+      height: 300px;
+    }
+
+    .status {
+      text-align: center;
+    }
+
+    .status p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .status span {
+      font-weight: bold;
+    }
+
+    .btn-check {
+      padding: 10px 20px;
+      background: #3b3fdb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-check:hover {
+      background: #2c2fb5;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: rgb(24, 3, 64);
+      color: #f2f2f2;
+      padding: 40px 20px;
+      box-shadow: inset 0 2px 8px rgb(0 0 0 / 0.5);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    .footer-section {
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+
+    .footer-section h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #ffffff;
+      border-bottom: 2px solid #3b3fdb;
+      padding-bottom: 5px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      font-size: 0.95rem;
+      color: #ffffff;
+      line-height: 1.5;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #ffd700;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #8a8acb;
+      border-top: 1px solid #3b3fdb;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="top-bar">
+    <div class="coclogo"></div>
+    <div class="namings">
+      <div class="college-name">College of Commerce , Arts & Science </div>
+      <div class="college-university">Patliputra University </div>
+    </div>
+  </div>
+  <div class="navbar-second">
+    <a href="HomePage.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="HomePage.html">Service</a>
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+  </div>
+
+  <!-- Dashboard -->
+  <section class="dashboard">
+    <!-- Server Graph -->
+    <div class="card">
+      <h2><i class="fa-solid fa-chart-line"></i> Server Performance</h2>
+      <canvas id="serverGraph"></canvas>
+    </div>
+
+    <!-- Current Server Status -->
+    <div class="card status">
+      <h2><i class="fa-solid fa-server"></i> Current Server Status</h2>
+      <p>Status: <span id="serverStatus">Checking...</span></p>
+      <button class="btn-check" onclick="checkServer()">Check Now</button>
+      <p style="font-size:14px; color:#aaa;">(Auto refresh every 5s)</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container" role="contentinfo">
+      <section class="footer-section" aria-labelledby="footer-about-title">
+        <h4 id="footer-about-title">About COCAS Patna</h4>
+        <p>COCAS Patna is committed to providing top-quality education with modern facilities and real-time digital solutions.</p>
+      </section>
+
+      <section class="footer-section" aria-labelledby="footer-contact-title">
+        <h4 id="footer-contact-title">Contact Info</h4>
+        <p>Email: support@ccaspatna.ac.in</p>
+        <p>Phone: +91 XXXXXXXXXX</p>
+        <p>Address: College Campus, Patna</p>
+      </section>
+
+      <section class="footer-section" aria-labelledby="footer-support-title">
+        <h4 id="footer-support-title">Emergency Support</h4>
+        <p>Payment Issues: 24/7 Helpline</p>
+        <p>Technical Support: Available</p>
+        <p>Refund Assistance: Immediate</p>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 COCAS Patna | All Rights Reserved
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Graph Data
+    const ctx = document.getElementById('serverGraph').getContext('2d');
+    const serverGraph = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM"],
+        datasets: [
+          {
+            label: 'Server Uptime (%)',
+            data: [95, 98, 92, 99, 97, 100],
+            borderColor: '#3b3fdb',
+            backgroundColor: 'rgba(59, 63, 219, 0.2)',
+            fill: true,
+            tension: 0.3
+          },
+          {
+            label: 'Response Rate (%)',
+            data: [90, 94, 89, 96, 92, 99],
+            borderColor: '#00ffae',
+            backgroundColor: 'rgba(0, 255, 174, 0.2)',
+            fill: true,
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            min: 80,
+            max: 100,
+            ticks: { color: "#fff" }
+          },
+          x: {
+            ticks: { color: "#fff" }
+          }
+        },
+        plugins: {
+          legend: { labels: { color: "#fff" } }
+        }
+      }
+    });
+
+    // Server Status Check
+    function checkServer() {
+      const statusEl = document.getElementById("serverStatus");
+      const statuses = ["Online ✅", "Slow ⚠️", "Offline ❌"];
+      const random = Math.floor(Math.random() * statuses.length);
+      statusEl.innerText = statuses[random];
+    }
+
+    // Auto update every 5 seconds
+    setInterval(checkServer, 5000);
+    window.onload = checkServer;
+  </script>
+</body>
+</html>
